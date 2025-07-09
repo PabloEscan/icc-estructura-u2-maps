@@ -28,6 +28,7 @@ public class Ejercicios {
      * frecuencia.
      */
     public static boolean areAnagrams(String str1, String str2) {
+        
         throw new UnsupportedOperationException("Not implemented yet");
 
     }
