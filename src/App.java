@@ -21,10 +21,15 @@ public class App {
 
     private static void runMapExamlpe() {
         Mapa mapa = new Mapa();
+        System.out.println("------HashMap------");
         mapa.runHashMap();
+        System.out.println("\n------LinledHashMap------");
         mapa.runLinkedHashMap();
+        System.out.println("\n------TreeMap------");
         mapa.runTreeMap();
+        System.out.println("\n------HashMap con objeto------");
         mapa.runHashMapObj();
+        System.out.println("\n------TreeMap con objeto------");
         mapa.runTreeMapObj();
     }
 
