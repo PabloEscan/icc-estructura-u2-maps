@@ -12,6 +12,7 @@ public class Mapa {
     }
 
     public void runHashMap(){
+        //No garantisa el orden de ingreso
         Map<String, String> mapa = new HashMap<>();
         mapa.put("001", "Celular");
         mapa.put("002", "Laptop");
@@ -27,6 +28,7 @@ public class Mapa {
 
     public void runLinkedHashMap(){
         Map<Integer, String> mapa = new LinkedHashMap<>();
+        //Aegura el orden de entrada
         mapa.put(18, "Pablo");
         mapa.put(23, "Juan");
         mapa.put(9, "Samin");
@@ -40,6 +42,7 @@ public class Mapa {
 
     public void runTreeMap(){
         Map<Integer, String> items = new TreeMap<>();
+        //Garantiza el orden como un arbol
         items.put(3, "Carro");
         items.put(6, "Bicicleta");
         items.put(1, "Moto");

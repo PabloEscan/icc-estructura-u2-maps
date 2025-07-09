@@ -1,16 +1,25 @@
 package models;
 
-public class Empleado implements Comparable<Empleado>{
+public class Empleado implements Comparable<Empleado> {
     private int id;
     private String name;
     private String position;
 
+    // Constructor completo
     public Empleado(int id, String name, String position) {
         this.id = id;
         this.name = name;
         this.position = position;
     }
 
+    // Constructor solo con ID (útil para eliminar)
+    public Empleado(int id) {
+        this.id = id;
+        this.name = "";
+        this.position = "";
+    }
+
+    // Getters
     public int getId() {
         return id;
     }
@@ -30,39 +39,22 @@ public class Empleado implements Comparable<Empleado>{
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + id;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        return result;
+        return Integer.hashCode(id);
     }
 
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
+        if (obj == null || getClass() != obj.getClass())
             return false;
         Empleado other = (Empleado) obj;
-        if (id != other.id)
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        return true;
+        return this.id == other.id;
     }
 
+    // Ordenar por id
     @Override
     public int compareTo(Empleado o) {
-        int nameCompare = this.name.compareTo(o.name);
-        if (nameCompare != 0) {
-            return nameCompare;
-        } else {
-            return Integer.compare(this.id, o.id);
-        }
+        return Integer.compare(this.id, o.id);
     }
 }
