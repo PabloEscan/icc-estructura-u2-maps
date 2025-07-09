@@ -155,7 +155,4 @@ Para administrar un directorio telefónico sin claves duplicadas y ordenado por 
 ![alt text](image-1.png)
 
 ## Segunda clase
-![alt text](image-1.png)
-
-## Tercera clase
 ![alt text](image-2.png)
