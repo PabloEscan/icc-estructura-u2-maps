@@ -1,6 +1,8 @@
 package controllers;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Ejercicios {
 
@@ -28,9 +30,17 @@ public class Ejercicios {
      * frecuencia.
      */
     public static boolean areAnagrams(String str1, String str2) {
-        
-        throw new UnsupportedOperationException("Not implemented yet");
+        if(str1.length() != str2.length()){
+            return false;
+        }
 
+        char[] charStr1 = str1.toLowerCase().toCharArray();
+        char[] charStr2 = str2.toLowerCase().toCharArray();
+
+        Arrays.sort(charStr1);
+        Arrays.sort(charStr2);
+        
+        return Arrays.equals(charStr2, charStr1);
     }
 
     /*
@@ -48,8 +58,16 @@ public class Ejercicios {
      * Input: nums = [9,2,3,6], objetivo = 10
      * Output: null
      */
-    public int[] sumatoriaDeDos(int[] nums, int objetivo) {
-        throw new UnsupportedOperationException("Not implemented yet");
+    public static int[] sumatoriaDeDos(int[] nums, int objetivo) {
+        Map<Integer, Integer> mapa = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complemento = objetivo - nums[i];
+            if (mapa.containsKey(complemento)) {
+                return new int[]{mapa.get(complemento), i};
+            }
+            mapa.put(nums[i], i);
+        }
+        return null;
     }
 
     /**
@@ -60,8 +78,12 @@ public class Ejercicios {
      * Input: "hola"
      * Output: {h=1, o=1, l=1, a=1}
      */
-    public void contarCaracteres(String texto) {
-        throw new UnsupportedOperationException("Not implemented yet");
+    public static void contarCaracteres(String texto) {
+        Map<Character, Integer> frecuencia = new HashMap<>();
+        for (char c : texto.toCharArray()) {
+            frecuencia.put(c, frecuencia.getOrDefault(c, 0) + 1);
+        }
+        System.out.println(frecuencia);
     }
 
     /**
@@ -72,7 +94,7 @@ public class Ejercicios {
      * Input: palabra1 = "roma", palabra2 = "amor"
      * Output: true
      */
-    public boolean sonAnagramas(String palabra1, String palabra2) {
-        throw new UnsupportedOperationException("Not implemented yet");
+    public static boolean sonAnagramas(String palabra1, String palabra2) {
+        return areAnagrams(palabra1, palabra2);
     }
 }
